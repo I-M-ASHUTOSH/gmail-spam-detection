@@ -1,0 +1,14 @@
+
+
+Gmail spam detection
+
+ len of each row
+histogram of spam and not spam messages  of thier len
+most spam messages --->100-180
+most ham messages---->0 -150
+string to stopwords 
+entire column those stopwords are removed
+naive bias algo
+
+
+
