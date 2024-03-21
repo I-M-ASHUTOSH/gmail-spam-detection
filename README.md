@@ -18,3 +18,57 @@
 </body>
 </html>
 
+let todos = [];
+
+function renderTodos() {
+  const todoList = document.getElementById("todoList");
+  todoList.innerHTML = "";
+  todos.forEach((todo, index) => {
+    const li = document.createElement("li");
+    li.textContent = todo;
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.addEventListener("click", () => deleteTodo(index));
+    li.appendChild(deleteButton);
+    todoList.appendChild(li);
+  });
+}
+
+function addTodo() {
+  const todoInput = document.getElementById("todoInput");
+  const todo = todoInput.value.trim();
+  if (todo !== "") {
+    todos.push(todo);
+    renderTodos();
+    todoInput.value = "";
+  }
+}
+
+function deleteTodo(index) {
+  todos.splice(index, 1);
+  renderTodos();
+}
+
+function searchTodo() {
+  const searchInput = document.getElementById("searchInput").value.trim().toLowerCase();
+  const filteredTodos = todos.filter(todo => todo.toLowerCase().includes(searchInput));
+  renderFilteredTodos(filteredTodos);
+}
+
+function renderFilteredTodos(filteredTodos) {
+  const todoList = document.getElementById("todoList");
+  todoList.innerHTML = "";
+  filteredTodos.forEach((todo, index) => {
+    const li = document.createElement("li");
+    li.textContent = todo;
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.addEventListener("click", () => deleteTodo(todos.indexOf(todo)));
+    li.appendChild(deleteButton);
+    todoList.appendChild(li);
+  });
+}
+
+document.getElementById("searchInput").addEventListener("input", searchTodo);
+
+
