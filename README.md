@@ -103,3 +103,39 @@ li {
   margin-bottom: 5px;
 }
 
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+}
+
+input[type="text"] {
+  width: calc(70% - 10px); /* Adjusted width to accommodate both inputs and buttons */
+  padding: 8px;
+  margin-right: 10px;
+  border: 1px solid #ccc; /* Added border for better visibility */
+}
+
+button {
+  padding: 8px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049; /* Darker green color on hover */
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 5px;
+}
